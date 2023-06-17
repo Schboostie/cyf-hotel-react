@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment/moment";
 
 const SearchResults = (props) => {
-  const booking = props.results.map((guest) => {
   function calculateNights(firstDate, secondDate) {
     let first = moment(firstDate, "YYYY-MM-DD");
     let second = moment(secondDate, "YYYY-MM-DD");
@@ -21,6 +20,7 @@ const SearchResults = (props) => {
           <th scope="col">Room id</th>
           <th scope="col">Check in date</th>
           <th scope="col">Check out date</th>
+          <th scope="col">Number of nights</th>
         </tr>
       </thead>
       <tbody>
