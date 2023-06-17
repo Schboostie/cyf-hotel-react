@@ -2,10 +2,11 @@ import React from "react";
 
 import Bookings from "./Bookings";
 import Heading from "./Heading";
-import Footer from "./Footer";
 import TouristInfoCards from "./TouristInfoCards";
-import Restaurant from "./Restaurant";
+import Footer from "./Footer";
 import "./App.css";
+import Cities from "./data/cities.json";
+import Restaurant from "./Restaurant";
 
 const App = () => {
   let footerArray = [
@@ -18,9 +19,9 @@ const App = () => {
       <Heading />
       <Bookings />
       <div className="info-cards">
-        <TouristInfoCards city="Glasgow" />
-        <TouristInfoCards city="Manchester" />
-        <TouristInfoCards city="London" />
+        {Cities.map((city) => {
+          return <TouristInfoCards key={city.id} city={city} />;
+        })}
       </div>
       <Restaurant />
       <Footer array={footerArray} />

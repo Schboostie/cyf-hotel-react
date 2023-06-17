@@ -17,4 +17,5 @@ const Restaurant = () => {
     </div>
   );
 };
+
 export default Restaurant;

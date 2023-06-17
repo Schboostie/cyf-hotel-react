@@ -14,4 +14,5 @@ const TouristInfoCards = (props) => {
     </div>
   );
 };
+
 export default TouristInfoCards;
