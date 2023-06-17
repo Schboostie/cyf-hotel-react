@@ -4,6 +4,7 @@ import Bookings from "./Bookings";
 import Heading from "./Heading";
 import Footer from "./Footer";
 import TouristInfoCards from "./TouristInfoCards";
+import Restaurant from "./Restaurant";
 import "./App.css";
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <TouristInfoCards city="Manchester" />
         <TouristInfoCards city="London" />
       </div>
+      <Restaurant />
       <Footer array={footerArray} />
     </div>
   );
