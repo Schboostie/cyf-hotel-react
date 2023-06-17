@@ -1,13 +1,7 @@
 import React from "react";
-import moment from "moment/moment";
+import BookingsRow from "./BookingsRow";
 
 const SearchResults = (props) => {
-  function calculateNights(firstDate, secondDate) {
-    let first = moment(firstDate, "YYYY-MM-DD");
-    let second = moment(secondDate, "YYYY-MM-DD");
-    return second.diff(first, "days");
-  }
-
   return (
     <table className="table">
       <thead className="thead-dark">
@@ -24,19 +18,23 @@ const SearchResults = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.results.map((guest) => (
-          <tr key={guest.roomId}>
-            <th scope="row">{guest.id}</th>
-            <td>{guest.title}</td>
-            <td>{guest.firstName}</td>
-            <td>{guest.surname}</td>
-            <td>{guest.email}</td>
-            <td>{guest.roomId}</td>
-            <td>{guest.checkInDate}</td>
-            <td>{guest.checkOutDate}</td>
-            <td>{calculateNights(guest.checkInDate, guest.checkOutDate)}</td>
+        {props.results !== [] ? (
+          props.results.map((guest) => (
+            <BookingsRow key={guest.roomId} guest={guest} />
+          ))
+        ) : (
+          <tr>
+            <th scope="row">Loading...</th>
+            <td>Loading...</td>
+            <td>Loading...</td>
+            <td>Loading...</td>
+            <td>Loading...</td>
+            <td>Loading...</td>
+            <td>Loading...</td>
+            <td>Loading...</td>
+            <td>Loading...</td>
           </tr>
-        ))}
+        )}
       </tbody>
     </table>
   );
